@@ -1,0 +1,273 @@
+/* إعدادات عامة للثيم الليلي */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Amiri', serif;
+    line-height: 1.8;
+    min-height: 100vh;
+    direction: rtl;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+    color: #ECF0F1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.back-btn, .switch-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ECF0F1;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(93, 109, 126, 0.3);
+    font-size: 1rem;
+}
+
+.back-btn:hover, .switch-btn:hover {
+    background: #5D6D7E;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(93, 109, 126, 0.4);
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #BDC3C7;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    color: #85929E;
+}
+
+.time-info {
+    font-size: 1.1rem;
+    color: #AEB6BF;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+.adhkar-container {
+    display: grid;
+    gap: 25px;
+}
+
+.dhikr-card {
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.dhikr-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5D6D7E, #85929E);
+    border-radius: 20px 20px 0 0;
+    transition: all 0.3s ease;
+}
+
+.dhikr-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dhikr-card:hover::before {
+    height: 6px;
+    background: linear-gradient(90deg, #85929E, #BDC3C7);
+}
+
+.dhikr-text {
+    font-size: 1.4rem;
+    line-height: 2.2;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #ECF0F1;
+}
+
+.dhikr-count {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #BDC3C7;
+    font-weight: 600;
+    background: rgba(93, 109, 126, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    color: #BDC3C7;
+    margin-top: auto;
+}
+
+.footer p {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* تأثيرات متحركة */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dhikr-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.dhikr-card:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.dhikr-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-btn, .switch-btn {
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .dhikr-text {
+        font-size: 1.2rem;
+    }
+    
+    .dhikr-card {
+        padding: 20px;
+    }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.dhikr-card:active {
+    transform: scale(0.98);
+}
+
+/* تدرج لوني جميل للخلفية الليلية */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(93, 109, 126, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(52, 73, 94, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(26, 26, 46, 0.4) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* تأثيرات النجوم للخلفية الليلية */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+@keyframes sparkle {
+    from { transform: translateX(0); }
+    to { transform: translateX(200px); }
+}
+

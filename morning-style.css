@@ -1,0 +1,246 @@
+/* إعدادات عامة للثيم النهاري */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Amiri', serif;
+    line-height: 1.8;
+    min-height: 100vh;
+    direction: rtl;
+    background: linear-gradient(135deg, #FFE5B4 0%, #FFCC70 25%, #FFB347 50%, #FFA500 75%, #FF8C00 100%);
+    color: #2C1810;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(255, 183, 71, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.back-btn, .switch-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    color: #2C1810;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 183, 71, 0.3);
+    font-size: 1rem;
+}
+
+.back-btn:hover, .switch-btn:hover {
+    background: #FFB347;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 183, 71, 0.4);
+}
+
+.main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #8B4513;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    margin-bottom: 10px;
+    color: #A0522D;
+}
+
+.time-info {
+    font-size: 1.1rem;
+    color: #CD853F;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    margin-bottom: 40px;
+}
+
+.adhkar-container {
+    display: grid;
+    gap: 25px;
+}
+
+.dhikr-card {
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 183, 71, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 183, 71, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.dhikr-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FFB347, #FFA500);
+    border-radius: 20px 20px 0 0;
+    transition: all 0.3s ease;
+}
+
+.dhikr-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(255, 183, 71, 0.25);
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.dhikr-card:hover::before {
+    height: 6px;
+    background: linear-gradient(90deg, #FF8C00, #FFB347);
+}
+
+.dhikr-text {
+    font-size: 1.4rem;
+    line-height: 2.2;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #2C1810;
+}
+
+.dhikr-count {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #8B4513;
+    font-weight: 600;
+    background: rgba(255, 183, 71, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 25px 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    color: #8B4513;
+    margin-top: auto;
+}
+
+.footer p {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* تأثيرات متحركة */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dhikr-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.dhikr-card:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.dhikr-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+/* تجاوب مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-btn, .switch-btn {
+        text-align: center;
+    }
+    
+    .main-title {
+        font-size: 2.2rem;
+    }
+    
+    .dhikr-text {
+        font-size: 1.2rem;
+    }
+    
+    .dhikr-card {
+        padding: 20px;
+    }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.dhikr-card:active {
+    transform: scale(0.98);
+}
+
+/* تدرج لوني جميل للخلفية */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 183, 71, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 204, 112, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
